@@ -1,0 +1,122 @@
+.wrap{
+    width: 100%;
+    height: 100%;
+}
+.notice_bg{
+    background-image:url(../img/notice_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+
+}
+img { pointer-events: none;}
+.logo_grid{
+    position: relative;
+    /* text-align: center; */
+    width: 100%;
+    height: 150px;
+    display: flex;
+    /* border: 1px solid; */
+    flex-direction: column;
+    align-items: center;
+}
+.logo{
+    width: 100px;
+    position: absolute;
+    top: 30px;
+
+}
+.logo img{ width: 100%;}
+.sel_grid{
+    position: relative;
+    width: 50%;
+    margin: 0 auto;
+}
+#sel{
+    width: 100%;
+    max-height: 500px;
+    overflow-y: scroll;
+    /* margin: 0 auto; */
+    position:relative;
+}
+
+#sel::-webkit-scrollbar {
+    width: 10px;
+}
+#sel::-webkit-scrollbar-thumb {
+    background-color: #2f3542;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
+#sel::-webkit-scrollbar-track {
+    background-color: grey;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+}
+
+.text_write{
+    position:absolute;
+    right:0px;
+    bottom: -35px;
+    color: white;
+    appearance: inherit;
+    background-color: #000;
+    background-image: none;
+    border: 1px solid #000;
+    border-radius: 4px;
+    box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    overflow: visible;
+    padding: 2px 3px;
+    text-align: center;
+    text-transform: none;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.text_write:focus {
+    text-decoration: none;
+}
+.text_write:hover{
+    text-decoration:none;
+}
+.text_write:active{
+    box-shadow:rgba(0,0,0,.125)0 3px 5px inset;
+    outline:0;
+}
+.text_write:not([disable]):active{
+    box-shadow:#fff 2px 2px 0 0, #000 2px 2px 0 1px;
+    transform:translate(2px,2px);
+}
+.table{
+    width: 50%;
+    margin: 0 auto;
+
+}
+.main_title_text{
+    text-align: center;
+    color:white;
+}
+.col-md-12{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#content{
+    height: 200px;
+}
+.btn_area{
+    float: right;
+}
+
+.text_write a{
+    text-decoration : none;
+}
