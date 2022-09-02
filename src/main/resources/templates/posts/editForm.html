@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>게시글 수정</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- style -->
+    <link th:href="@{/css/notice_board.css}" rel="stylesheet" href="/css/notice_board.css" type="text/css">
+    <link th:href="@{/css/common.css}" rel="stylesheet" type="text/css" href="/css/common.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="wrap">
+    <div class="notice_bg">
+        <div class="logo_grid">
+            <h1 class="logo">
+                <a href="/static"><img src="/img/LOGO.png" alt="로고"></a>
+            </h1>
+        </div>
+        <h1 class="main_title_text">게시글 수정</h1>
+
+<div class="col-md-12">
+    <div class="col-md-4">
+        <form action="saveResult.html" th:action method="post">
+            <div class="form-group">
+                <label for="id">글 번호</label>
+                <input type="text" class="form-control" id="id" th:value="${post.id}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="title">제목</label>
+                <input type="text" class="form-control" id="title" th:value="${post.title}" >
+            </div>
+            <div class="form-group">
+                <label for="author">작성자</label>
+                <input type="text" class="form-control" id="author" th:value="${post.author}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="content">내용</label>
+                <textarea class="form-control" id="content" th:value="${post.content}" th:text="${post.content}"></textarea>
+            </div>
+            <div class="btn_area">
+                <a onclick="location.href='saveResult.html'"
+                   th:onclick="|location.href='@{/posts/{postId}(postId=${post.id})}'|"
+                   role="button" class="btn btn-secondary">취소</a>
+                <button type="submit" class="btn btn-primary" id="btn-update">수정 완료</button>
+                <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
+            </div>
+        </form>
+    </div>
+</div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!--index.js 추가-->
+<!--<script src="/godjs/posts.js"></script>-->
+</body>
+</html>

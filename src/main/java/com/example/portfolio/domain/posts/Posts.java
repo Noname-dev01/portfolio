@@ -1,16 +1,11 @@
 package com.example.portfolio.domain.posts;
 
-import com.example.portfolio.domain.BaseTimeEntity;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
+import lombok.Data;
 import javax.persistence.*;
 
-@Getter
-@NoArgsConstructor
 @Entity
-public class Posts extends BaseTimeEntity {
+@Data
+public class Posts {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,21 +13,16 @@ public class Posts extends BaseTimeEntity {
 
     @Column(length = 500, nullable = false)
     private String title;
-
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
-
     private String author;
 
-    @Builder
+    public Posts(){
+
+    }
     public Posts(String title, String content, String author) {
         this.title = title;
         this.content = content;
         this.author = author;
-    }
-
-    public void update(String title, String content) {
-        this.title = title;
-        this.content = content;
     }
 }
