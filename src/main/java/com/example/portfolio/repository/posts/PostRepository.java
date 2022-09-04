@@ -1,11 +1,9 @@
 package com.example.portfolio.repository.posts;
 
 import com.example.portfolio.domain.posts.Posts;
-import com.example.portfolio.domain.posts.QPosts;
-import com.example.portfolio.repository.PostRepositoryInteface;
+import com.example.portfolio.repository.PostRepositoryInterface;
 import com.example.portfolio.repository.PostSearchCond;
 import com.example.portfolio.repository.PostUpdateDto;
-import com.querydsl.core.types.Predicate;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.stereotype.Repository;
@@ -20,10 +18,9 @@ import static com.example.portfolio.domain.posts.QPosts.posts;
 
 @Repository
 @Transactional
-public class PostRepository implements PostRepositoryInteface {
+public class PostRepository implements PostRepositoryInterface {
 
     private final EntityManager em;
-
     private final JPAQueryFactory query;
 
     public PostRepository(EntityManager em) {
@@ -33,8 +30,8 @@ public class PostRepository implements PostRepositoryInteface {
 
     @Override
     public Posts save(Posts posts) {
-        em.persist(posts);
-        return posts;
+         em.persist(posts);
+         return posts;
     }
 
     @Override
@@ -50,29 +47,31 @@ public class PostRepository implements PostRepositoryInteface {
         Posts posts = em.find(Posts.class, id);
         return Optional.ofNullable(posts);
     }
-    
 
     @Override
     public List<Posts> findAll(PostSearchCond cond) {
+
         String titleCheck = cond.getTitleCheck();
         String authorCheck = cond.getAuthorCheck();
 
-        return query.select(posts)
+        return query
+                .select(posts)
                 .from(posts)
-                .where(likeTitle(titleCheck),likeAuthor(authorCheck))
+                .where(likeTitleCheck(titleCheck),likeAuthorCheck(authorCheck))
                 .fetch();
+
     }
 
-    private BooleanExpression likeAuthor(String authorCheck) {
-        if (StringUtils.hasText(authorCheck)){
-            return posts.author.like("%"+authorCheck+"%");
+    private BooleanExpression likeTitleCheck(String titleCheck) {
+        if (StringUtils.hasText(titleCheck)){
+            return posts.title.like("%"+titleCheck+"%");
         }
         return null;
     }
 
-    private BooleanExpression likeTitle(String titleCheck) {
-        if (StringUtils.hasText(titleCheck)){
-            return posts.title.like("%"+titleCheck+"%");
+    private BooleanExpression likeAuthorCheck(String authorCheck) {
+        if (StringUtils.hasText(authorCheck)){
+            return posts.author.like("%"+authorCheck+"%");
         }
         return null;
     }

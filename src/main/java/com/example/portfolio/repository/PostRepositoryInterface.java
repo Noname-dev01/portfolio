@@ -1,11 +1,12 @@
 package com.example.portfolio.repository;
 
+
 import com.example.portfolio.domain.posts.Posts;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface PostRepositoryInteface {
+public interface PostRepositoryInterface {
 
     Posts save(Posts posts);
 

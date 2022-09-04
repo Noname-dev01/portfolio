@@ -23,19 +23,19 @@
         <form action="saveResult.html" th:action method="post">
             <div class="form-group">
                 <label for="id">글 번호</label>
-                <input type="text" class="form-control" id="id" th:value="${post.id}" readonly>
+                <input type="text" class="form-control" id="id" name="id" th:value="${post.id}" readonly>
             </div>
             <div class="form-group">
                 <label for="title">제목</label>
-                <input type="text" class="form-control" id="title" th:value="${post.title}" >
+                <input type="text" class="form-control" id="title" name="title" th:value="${post.title}" >
             </div>
             <div class="form-group">
                 <label for="author">작성자</label>
-                <input type="text" class="form-control" id="author" th:value="${post.author}" readonly>
+                <input type="text" class="form-control" id="author" name="author" th:value="${post.author}" readonly>
             </div>
             <div class="form-group">
                 <label for="content">내용</label>
-                <textarea class="form-control" id="content" th:value="${post.content}" th:text="${post.content}"></textarea>
+                <textarea class="form-control" id="content" name="content" th:value="${post.content}" th:text="${post.content}"></textarea>
             </div>
             <div class="btn_area">
                 <a onclick="location.href='saveResult.html'"

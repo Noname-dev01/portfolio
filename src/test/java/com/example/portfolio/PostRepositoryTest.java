@@ -4,7 +4,6 @@ import com.example.portfolio.domain.posts.Posts;
 import com.example.portfolio.repository.PostSearchCond;
 import com.example.portfolio.repository.PostUpdateDto;
 import com.example.portfolio.repository.posts.PostRepository;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -72,7 +71,7 @@ public class PostRepositoryTest {
     }
 
     void test(String titleCheck, String authorCheck,Posts ... posts) {
-        List<Posts> result = postRepository.findAll(new PostSearchCond(titleCheck, authorCheck));
+        List<Posts> result = postRepository.findAll(new PostSearchCond(titleCheck,authorCheck));
         assertThat(result).containsExactly(posts);
     }
 
